@@ -4,7 +4,7 @@ import { CloudUploadOutlined } from '@ant-design/icons';
 import Masonry from 'react-masonry-css';
 import VideoItem, { VideoData } from './VideoItem';
 import { v4 as uuidv4 } from 'uuid';
-import { getVideoDuration, generateCover, processInBatches } from '../utils/videoUtils';
+import {getVideoDuration, generateCover, processInBatches, formatDuration} from '../utils/videoUtils';
 
 const { Dragger } = Upload;
 
@@ -130,14 +130,6 @@ const VideoUploadPage: React.FC = () => {
 
   // 计算所有视频总时长（单位：秒），并格式化为 HH:mm:SS
   const totalDurationSeconds = videos.reduce((acc, v) => acc + v.duration, 0);
-  const formatDuration = (seconds: number): string => {
-    const hrs = Math.floor(seconds / 3600);
-    const mins = Math.floor((seconds % 3600) / 60);
-    const secs = Math.floor(seconds % 60);
-    return [hrs, mins, secs]
-      .map((unit) => String(unit).padStart(2, '0'))
-      .join(':');
-  };
   const totalDurationFormatted = formatDuration(totalDurationSeconds);
 
   return (
