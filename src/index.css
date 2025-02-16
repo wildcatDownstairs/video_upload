@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+/* react-masonry-css 栅格布局样式 */
+.my-masonry-grid {
+    display: flex;
+    margin-left: -16px; /* gutter size offset */
+    width: auto;
+}
+.my-masonry-grid_column {
+    padding-left: 16px; /* gutter size */
+    background-clip: padding-box;
+}
+
+/* 可根据需要补充其他全局样式 */
